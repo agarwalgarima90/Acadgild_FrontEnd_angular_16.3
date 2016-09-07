@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="acadgild">
+	<head>
+		<title>Assignment 16.3</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script>
+			var myapp = angular.module('acadgild', []);
+
+			myapp.factory('empDetails', function() {
+				var employees = [{name : "Garima Agarwal", designation: "Developer"},
+						{name: "Rishi Agrawal", designation: "Manager"}];
+
+				return{
+					printDetail: function() {
+						return employees;
+					}
+				}
+				
+			});
+
+			myapp.controller('mycontroller1', function($scope, empDetails) {
+				$scope.users = [];
+				$scope.GetUsers = function() {
+					$scope.users = empDetails.printDetail();
+				}
+			});
+
+
+		</script>
+	</head>
+	<body>
+		<div ng-controller="mycontroller1" ng-init="GetUsers()">
+			<ul ng-repeat="n in users">
+				<li>{{n.name}} - {{n.designation}}</li>
+			</ul>
+		</div>
+
+	</body>
+</html>
