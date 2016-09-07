@@ -30,9 +30,12 @@
 	</head>
 	<body>
 		<div ng-controller="mycontroller1" ng-init="GetUsers()">
-			<ul ng-repeat="n in users">
-				<li>{{n.name}} - {{n.designation}}</li>
-			</ul>
+			<table border="1">
+				<tr ng-repeat="n in users">
+					<td>{{n.name}}</td>
+					<td>{{n.designation}}</td>
+				</tr>
+			</table>
 		</div>
 
 	</body>
